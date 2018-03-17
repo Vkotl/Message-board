@@ -1,0 +1,17 @@
+body {color: blue;}
+
+/* users is the link with usernames in the index page. */
+a.users {font-size: 30px}
+/* link means that every link in the site will be orange. */
+a:link {color: orange;}
+/* visited means that every visited link in the site will be red. */
+a:visited {color: red;}
+
+/* It is the textarea that the message is typed into. */
+textarea {font-size: 18px;}
+
+/* Error is the error element in each page that is raised by ValidationError */
+p.Error {color: red}
+
+/* Date is the date element before each message that checks if the previous date was different or not. */
+div.Date {color: black; font-size: 20px; font-weight: bold}

@@ -1,0 +1,27 @@
+{% extends "chat/base.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+    {% block header %} <h1>Chat login</h1> {% endblock %}
+    {#    Get all the errors in parameter error from MessageForm and remove all the tags it has. #}
+    <p class="Error">{{ error|striptags }}</p>
+    <form method="post" action="{% url 'chat:login' %}">
+        {% csrf_token %}
+        <table>
+            {#        For each field in the form (Three fields because 3 members of RegisterForm) put the label in the left td #}
+            {#        and put the textfield in the right td #}
+            {% for field in form %}
+                <tr>
+                    <td>
+                        <label for="{{ field.label }}">{{ field.label_tag }}</label>
+                    </td>
+                    <td>
+                        {{ field }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Login" />
+    </form>
+    {#    Go to chat\urls and go to register #}
+    Don't have an account? <a href=" {% url 'chat:register' %}">Register</a> here.
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'chat/base.html' %}
+{% block title %} Chat with {{ other.username }}{% endblock %}
+{% block body %} Welcome {{ user.username }}, you can <a href="{% url 'chat:logout' %}">logout</a> here.
+    <br /> You can also go back to the <a href="{% url 'chat:index' %}">homepage</a>.
+    <br /><br />You are in chat with {{ other.username }}
+    {% if message_list %}
+        {% for message in message_list %}
+            {#            autoescape off allows message to have some HTML code which will be added as original code. #}
+            {#            linebreaksbr turns each \n in message into <br />#}
+            {% autoescape off %} {{ message|linebreaksbr }} {% endautoescape %}
+        {% endfor %}
+    {% else %}
+        {#        If there are no messages between the user and the other user. #}
+        <br /><br /> You have no chat history with {{ other.username }}
+    {% endif %}
+    <hr />
+    {#    Get all the errors in parameter error from loginView and remove all the tags it has.#}
+    <p class="Error">{{ error|striptags }}</p>
+    <form method="post" action="{% url 'chat:room' other.id %}">
+        {# Because send_msg gets input except request, the user_username has to be added to the right of it as the input #}
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Send" />
+    </form>
+{% endblock  %}

@@ -1,0 +1,10 @@
+<html>
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'chat/style.css' %}" />
+    {% block head %} <title>{% block title %} {% endblock %}</title> {% endblock %}
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>

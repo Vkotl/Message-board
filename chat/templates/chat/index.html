@@ -1,0 +1,16 @@
+{% extends 'chat/base.html' %}
+{% block title %}Index{% endblock %}
+{% block body %}
+    {% block header %}<h1> User list </h1> {% endblock %}
+    {% block content %}
+        {#        In Django, 'user' parameter will always be the registered user. So user.username gets the user's username. #}
+        Welcome {{ user.username }}, you can <a href="{% url 'chat:logout' %}">logout</a>.
+        {% for userl in user_list %}
+            {#            Show all the users registered except the active one. #}
+            {% if userl != user %}
+                {#                Go to chat\urls.py and find 'room' url there, add user1.id as parameter to the function view. #}
+                <br /> <a class="users" href="{% url 'chat:room' userl.id %}">{{ userl.username }}</a>
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
+{% endblock %}
