@@ -40,12 +40,14 @@ INSTALLED_APPS = (
     'chat'
 )
 
-MIDDLEWARE_CLASSES = (
+
+# Changed MIDDLEWARE_CLASSES into MIDDLEWARE for Django 2.0 and removed deprecated SessionAuthenticationMiddleware.
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',

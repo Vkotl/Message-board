@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='User',
             fields=[
-                ('user_ptr', models.OneToOneField(to=settings.AUTH_USER_MODEL, serialize=False, primary_key=True, auto_created=True, parent_link=True)),
+                ('user_ptr', models.OneToOneField(to=settings.AUTH_USER_MODEL, serialize=False, primary_key=True, auto_created=True, parent_link=True, on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,
@@ -32,11 +32,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='message',
             name='mess_receiver',
-            field=models.ForeignKey(related_name='Receiver', to='chat.User'),
+            field=models.ForeignKey(related_name='Receiver', to='chat.User', on_delete=models.CASCADE),
         ),
         migrations.AlterField(
             model_name='message',
             name='sender',
-            field=models.ForeignKey(related_name='Sender', to='chat.User'),
+            field=models.ForeignKey(related_name='Sender', to='chat.User', on_delete=models.CASCADE),
         ),
     ]

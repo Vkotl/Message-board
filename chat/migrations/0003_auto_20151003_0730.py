@@ -20,12 +20,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='message',
             name='mess_receiver',
-            field=models.ForeignKey(related_name='Receiver', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(related_name='Receiver', to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE),
         ),
         migrations.AlterField(
             model_name='message',
             name='sender',
-            field=models.ForeignKey(related_name='Sender', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(related_name='Sender', to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE),
         ),
         migrations.DeleteModel(
             name='User',

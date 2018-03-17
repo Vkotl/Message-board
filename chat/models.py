@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 class Message (models.Model):
 
-    sender = models.ForeignKey(User, related_name='Sender')
-    mess_receiver = models.ForeignKey(User, related_name='Receiver')
+    sender = models.ForeignKey(User, related_name='Sender', on_delete=models.CASCADE)
+    mess_receiver = models.ForeignKey(User, related_name='Receiver', on_delete=models.CASCADE)
     content = models.CharField('Message', max_length=500)
     pub_date = models.DateTimeField('Date sent')
 

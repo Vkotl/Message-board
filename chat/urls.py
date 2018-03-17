@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 # them directly.
 from django.contrib.auth.views import logout
 
+# Updated for Django 2.0 to fix namespace exception from the inc
+app_name='chat'
 
 urlpatterns = [
     # redirect_field_name=None prevents Django from redirecting back to where it was called from.

@@ -18,8 +18,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
                 ('content', models.CharField(max_length=500, verbose_name='Message')),
                 ('pub_date', models.DateTimeField(verbose_name='Date sent')),
-                ('mess_receiver', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='Receiver')),
-                ('sender', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='Sender')),
+                ('mess_receiver', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='Receiver', on_delete=models.CASCADE)),
+                ('sender', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='Sender', on_delete=models.CASCADE)),
             ],
         ),
     ]
